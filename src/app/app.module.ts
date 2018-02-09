@@ -8,6 +8,7 @@ import { ItemComponent } from './item/item.component';
 import { ListManagerComponent } from './list-manager/list-manager.component';
 
 import { TodoListService } from './todo-list.service';
+import {TodoListStorageService} from './todo-list-storage.service';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { TodoListService } from './todo-list.service';
   imports: [
     BrowserModule
   ],
-  providers: [TodoListService],
+  providers: [
+    TodoListService,
+    TodoListStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
