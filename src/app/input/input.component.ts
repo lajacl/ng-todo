@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'todo-input',
   template: `                           
-  <input [placeholder]="title"              
+  <input [placeholder]="holder"              
          (keyup.enter)="changeTitle($event.target.value)"
          #inputElement class="todo-input">
          
@@ -14,7 +14,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
-  title: string = 'Have something to do ?';
+  holder: string = 'Have something to do ?';
 
   constructor() { }
 
@@ -22,7 +22,6 @@ export class InputComponent implements OnInit {
   }
 
   changeTitle(newTitle: string): void {
-    this.title = newTitle;
     this.submit.emit(newTitle)
   }
 
