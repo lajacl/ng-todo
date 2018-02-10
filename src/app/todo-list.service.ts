@@ -13,14 +13,14 @@ export class TodoListService {
   ];
 
   constructor(private storage:TodoListStorageService) {
-    
+
   }
 
   getTodoList () {
-    return this.todoList;
+    return this.storage.get();
   }
 
-  addItem(item): void { 
-    this.todoList.push(item); 
+  addItem(item) { 
+    return this.storage.post(item); 
 }
 }
