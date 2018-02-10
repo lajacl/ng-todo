@@ -12,7 +12,7 @@ import {TodoListService} from '../todo-list.service'
       <todo-input (submit)="addItem($event)" class="todo-add"></todo-input>
       <ul>
         <li *ngFor="let item of todoList">
-        <todo-item [todoItem]="item"></todo-item>
+        <todo-item [todoItem]="item" (remove)="removeItem($event)"></todo-item>
         </li>
       </ul>
     </div>
@@ -30,7 +30,11 @@ export class ListManagerComponent implements OnInit {
   }
 
   addItem(title: string): void {
-    this.todoList = this.todoListService.addItem({title: title})
+    this.todoList = this.todoListService.addItem({title})
+  }
+
+  removeItem(item: string): void {
+    this.todoList = this.todoListService.removeItem(item)
   }
 
 }

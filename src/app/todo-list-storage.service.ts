@@ -33,6 +33,7 @@ export class TodoListStorageService {
      * @returns {any[]}
      */
     post(item) {
+      console.log('Item sent to Storage post: ' + JSON.stringify(item))
       this.todoList.push(item);
       return this.update();
     }
@@ -64,6 +65,8 @@ export class TodoListStorageService {
    */
   private update() {
     localStorage.setItem(storageName, JSON.stringify(this.todoList));
+
+    console.log('Get from Storage: ' + JSON.stringify(this.get()))
     return this.get();
   }
 
