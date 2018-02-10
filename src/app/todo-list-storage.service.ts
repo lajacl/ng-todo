@@ -64,7 +64,6 @@ export class TodoListStorageService {
    */
   private update() {
     localStorage.setItem(storageName, JSON.stringify(this.todoList));
-
     return this.get();
   }
 
